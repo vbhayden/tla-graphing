@@ -6,6 +6,7 @@ services:
     build:
       context: apollo
     restart: unless-stopped
+    container_name: docker_apollo
     ports:
       - 3000
     environment: 
@@ -17,6 +18,7 @@ services:
     build:
       context: neo4j
     restart: unless-stopped
+    container_name: docker_neo4j
     ports:
       - 127.0.0.1:17474:7474
       - 127.0.0.1:17687:7687
