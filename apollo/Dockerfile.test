@@ -11,4 +11,4 @@ COPY ./ /usr/src/app/
 RUN npm install --save
 
 # Start the service
-CMD ["npm", "start"]
+CMD ["npm", "run", "test"]

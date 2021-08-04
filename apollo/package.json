@@ -1,0 +1,22 @@
+{
+    "name": "apollo-api",
+    "version": "0.0.1",
+    "description": "Placeholder",
+    "main": "app.js",
+    "scripts": {
+        "start": "node app.js",
+        "test": "mocha"
+    },
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "body-parser": "^1.19.0",
+        "cors": "^2.8.5",
+        "ejs": "^2.7.1",
+        "express": "^4.17.1",
+    },
+    "devDependencies": {
+        "chai": "^4.2.0",
+        "mocha": "^7.0.1"
+    }
+}
