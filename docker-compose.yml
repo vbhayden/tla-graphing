@@ -25,8 +25,8 @@ services:
       - ./neo4j/import:/import
       - ./neo4j/logs:/logs
       - ./neo4j/plugins:/plugins
-      - "./certbot/etc/live/${HOSTNAME}/privkey.pem:/var/lib/neo4j/certificates/bolt/neo4j.key"
-      - "./certbot/etc/live/${HOSTNAME}/fullchain.pem:/var/lib/neo4j/certificates/bolt/neo4j.cert"
+      - "./certbot/etc/live/${HOSTNAME}/privkey.pem:/var/lib/neo4j/certificates/bolt/private.key"
+      - "./certbot/etc/live/${HOSTNAME}/fullchain.pem:/var/lib/neo4j/certificates/bolt/public.crt"
     environment: 
       NEO4J_AUTH: 
       NEO4J_dbms_memory_pagecache_size: 1G
