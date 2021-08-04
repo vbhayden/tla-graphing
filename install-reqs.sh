@@ -17,7 +17,7 @@ announce "Curl"
 if ! [ -x "$(command -v curl)" ]; then
 	
 	# Curl is easy
-	apt-get install curl
+	apt-get install -y curl
 	
 else
 	echo "Skipping, Curl already installed!"
@@ -64,6 +64,3 @@ if ! [ -x "$(command -v docker-compose)" ]; then
 else
 	echo "Skipping, docker-compose already installed!"
 fi
-
-echo "Launch server requirements should all be ready."
-echo ""
