@@ -12,16 +12,13 @@ services:
     environment: 
       APP_SECRET: $APP_SECRET
     networks:
-      - public
+      - local
 
   neo4j:
     build:
       context: neo4j
     restart: unless-stopped
     container_name: docker_neo4j
-    ports:
-      - 17474:7474
-      - 17687:7687
     volumes:
       - ./neo4j/conf:/conf
       - ./neo4j/data:/data
@@ -34,7 +31,7 @@ services:
       NEO4J_dbms_memory_heap_max__size: 1G
       NEO4J_dbms_connector_bolt_listen__address: 0.0.0.0:7687
     networks:
-      - public
+      - local
 
   nginx:
     restart: unless-stopped
@@ -46,11 +43,14 @@ services:
       - 80:80
       - 443:443
       - 7687:7687
+      - 7688:7688
     container_name: docker_nginx
     volumes:
+      - "./"
       - ./nginx/letsencrypt:/usr/share/nginx/html
       - ./certbot/etc:/usr/share/keys
     networks:
+      - local
       - public
 
   certbot:
@@ -62,10 +62,11 @@ services:
       - ./certbot/etc:/etc/letsencrypt
       - ./certbot/log:/var/log/letsencrypt
     networks:
-      - public
+      - local
     depends_on:
       - nginx
 
 networks:
+  local:
   public:
     driver: bridge
